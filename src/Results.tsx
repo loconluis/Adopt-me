@@ -1,7 +1,12 @@
-import React from "react";
+import { FunctionComponent } from "react";
 import Pet from "./Pet";
+import { Pet as IPet } from "./APIResponseTypes";
 
-export default function Results({ pets }) {
+interface IProps {
+  pets: IPet[];
+}
+
+const Results: FunctionComponent<IProps> = ({ pets }) => {
   return (
     <div className="search">
       {!pets.length ? (
@@ -21,4 +26,6 @@ export default function Results({ pets }) {
       )}
     </div>
   );
-}
+};
+
+export default Results;
