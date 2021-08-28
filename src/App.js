@@ -1,16 +1,20 @@
-import { StrictMode, useState } from "react";
+import {
+  StrictMode,
+  // useState
+} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import store from "./store";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
-import ThemeContext from "./ThemeContext";
+import { Provider } from "react-redux";
 
 const App = () => {
-  const themeHook = useState("darkblue");
+  // const themeHook = useState("darkblue");
 
   return (
     <StrictMode>
-      <ThemeContext.Provider value={themeHook}>
+      <Provider store={store}>
         <div>
           <Router>
             <header>
@@ -24,7 +28,7 @@ const App = () => {
             </Switch>
           </Router>
         </div>
-      </ThemeContext.Provider>
+      </Provider>
     </StrictMode>
   );
 };

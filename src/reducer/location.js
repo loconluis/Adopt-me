@@ -1,0 +1,8 @@
+export default function location(state = "", action) {
+  switch (action.type) {
+    case "LOCATION_CHANGE":
+      return action.payload;
+    default:
+      return state;
+  }
+}
